@@ -2,7 +2,7 @@ import React from 'react';
 import baner1 from '../../../assets/banner/sample-1.jpg'
 import baner2 from '../../../assets/banner/sample-2.jpg'
 import baner3 from '../../../assets/banner/sample-3.jpg'
-import { BsDot } from "react-icons/bs";
+
 
 const Banner = () => {
     return (
@@ -91,13 +91,13 @@ const Banner = () => {
                    </div>
                  </div> 
                  <div className="flex justify-center w-full py-2 gap-2">
-                   <a href="#item1" className="btn btn-xs"><BsDot className='font-bold' /></a> 
-                   <a href="#item2" className="btn btn-xs"><BsDot className='font-bold' /></a> 
-                   <a href="#item3" className="btn btn-xs"><BsDot className='font-bold' /></a> 
-                   <a href="#item4" className="btn btn-xs"><BsDot className='font-bold' /></a>
+                   <a href="#item1" className="btn btn-xs">1</a> 
+                   <a href="#item2" className="btn btn-xs">2</a> 
+                   <a href="#item3" className="btn btn-xs">3</a> 
+                   <a href="#item4" className="btn btn-xs">4</a>
                  </div>
         </div>
-    );
+    )
 };
 
 export default Banner;
