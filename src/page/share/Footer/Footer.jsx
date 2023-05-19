@@ -9,7 +9,7 @@ const Footer = () => {
                    <p>BD Toys Car Shop<br/>Providing reliable shop since 1992</p>
                  </div> 
                  <div>
-                   <span className="footer-title">Services</span> 
+                   <span className="footer-title" >Services</span> 
                    <a className="link link-hover">Branding</a> 
                    <a className="link link-hover">Design</a> 
                    <a className="link link-hover">Marketing</a> 

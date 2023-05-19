@@ -9,7 +9,7 @@ const Navber = () => {
         <li><Link>All Toys</Link></li>
         <li><Link>My Toys</Link></li>
         <li><Link>Add A Toys</Link></li>
-        <li><Link>Blogs</Link></li> 
+        <li><Link to='/blog'>Blogs</Link></li> 
     </div>
     
     return (
