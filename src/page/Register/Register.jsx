@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
+    //
+    const { signin, updatedProfile } = useContext(AuthContext);
 
     const handleLogin = event=>{
         event.preventDefault();
@@ -10,17 +13,30 @@ const Register = () => {
         const email = from.email.value;
         const photo = from.photo.value;
         const password = from.password.value;
-        const newUser = {
-            UserName: name,
-             email, 
-             photo,
-             password
-          }
-          console.log(newUser)
+        console.log(email, name, photo, password);
+       //
+       signin(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            updatedProfile(name, photo)
+            event.target.reset('');
+        })
+        .catch(error =>{
+             console.log(error)     
+        })
+        //updated profile
+        updatedProfile(name, photo)
+         .then(()=>{
+            console.log('updated user profile')
+         })
+         .catch(error=>{
+             console.log(error)
+         })
     }
 
     return (
-        <div>
+        <div className='mt-5'>
             <form onSubmit={handleLogin}>
              <div className="hero">
                  <div className="hero-content flex-col">
@@ -31,25 +47,25 @@ const Register = () => {
                          <label className="label">
                            <span className="label-text">Name</span>
                          </label>
-                         <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                         <input type="text" name='name' required placeholder="name" className="input input-bordered" />
                        </div>
                        <div className="form-control">
                          <label className="label">
                            <span className="label-text">Email</span>
                          </label>
-                         <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                         <input type="text" name='email' required placeholder="email" className="input input-bordered" />
                        </div>
                        <div className="form-control">
                          <label className="label">
                            <span className="label-text">Photo URl</span>
                          </label>
-                         <input type="text" name='photo' placeholder="photo Url" className="input input-bordered" />
+                         <input type="text" name='photo' required placeholder="photo Url" className="input input-bordered" />
                        </div>
                        <div className="form-control">
                          <label className="label">
                            <span className="label-text">Password</span>
                          </label>
-                         <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                         <input type="text" name='password' required placeholder="password" className="input input-bordered" />
                        </div>
                        <div className="form-control mt-6">
                          <button className="btn btn-primary">Login</button>

@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+
+    const {login} = useContext(AuthContext);
+    //
+    const [error, setError]= useState('');
 
     const handleLogin = event=>{
         event.preventDefault();
@@ -9,10 +14,20 @@ const Login = () => {
         const email = from.email.value;
         const password = from.password.value;
         console.log(email, password)
+        //login
+        login(email, password)
+         .then(result =>{
+             const user = result.user;
+             console.log(user)
+         })
+         .catch(error =>{
+             console.log(error)
+             setError('Did not match email or password', error);
+         })
     }
 
     return (
-        <div>
+        <div className='mt-5'>
             <form onSubmit={handleLogin}>
              <div className="hero">
                  <div className="hero-content flex-col">
@@ -36,6 +51,9 @@ const Login = () => {
                        </div>
                        <p className='text-center font-semibold'>
                            Have an account?  <Link to='/signin' className='font-bold text-[#4d0dfc]'>SignIn</Link>
+                       </p>
+                       <p className='text-center text-[#eb1919] font-bold'>
+                         {error}
                        </p>
                      </div>
                 </div>

@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/img/logo/download.jpg'
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Navber = () => {
+     //logout
+     const {logout, user} = useContext(AuthContext);
+
+     //logout
+     const handleLogout=()=>{
+        logout()
+         .then()
+         .catch(error=>{
+            console.log(error)
+         })
+     }
 
     const navItems = <div className='flex flex-col lg:flex-row gap-4 font-semibold'>
         <li><Link>Home</Link></li>
@@ -35,7 +47,17 @@ const Navber = () => {
                     </ul>
                   </div>
                   <div className="navbar-end">
-                    <Link to='/login' className="btn">Login</Link>
+                        {user && <div className='me-5'>
+                          <img src={user.photoURL} className="rounded-full" style={{width: '50px', height: '50px'}}/>
+                        </div>}
+                        {
+                          user? 
+                            <button onClick={handleLogout} className="btn btn-outline btn-secondary">LogOut</button> :
+                          <Link to='/login'>
+                          <button className="btn btn-outline btn-secondary">Login</button>
+                         </Link> 
+                         
+                        }
                   </div>
              </div>
         </div>
