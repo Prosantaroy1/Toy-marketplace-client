@@ -18,9 +18,11 @@ const Navber = () => {
 
     const navItems = <div className='flex flex-col lg:flex-row gap-4 font-semibold'>
         <li><Link>Home</Link></li>
-        <li><Link>All Toys</Link></li>
-        <li><Link>My Toys</Link></li>
-        <li><Link>Add A Toys</Link></li>
+        <li><Link to='/alltoys'>All Toys</Link></li>
+        {
+          user && <li><Link to='/mytoys'>My Toys</Link></li>
+        }
+        <li><Link to='/addToy'>Add A Toys</Link></li>
         <li><Link to='/blog'>Blogs</Link></li> 
     </div>
     
@@ -47,8 +49,9 @@ const Navber = () => {
                     </ul>
                   </div>
                   <div className="navbar-end">
-                        {user && <div className='me-5'>
-                          <img src={user.photoURL} className="rounded-full" style={{width: '50px', height: '50px'}}/>
+                        {user && <div className=" me-5">
+                          <img src={user?.photoURL} title={user?.displayName}  className="rounded-full"
+                            style={{width: '50px', height: '50px'}}/>
                         </div>}
                         {
                           user? 
