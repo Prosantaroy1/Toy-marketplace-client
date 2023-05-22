@@ -22,7 +22,7 @@ const Category = () => {
        setActiveTab(tabName);
      //  console.log(tabName)
     };
-   console.log(categorys)
+   //console.log(categorys)
    //
    //const {_id, price, rating, photo, toyname} = categorys || {};
 

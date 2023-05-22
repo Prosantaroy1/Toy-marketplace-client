@@ -6,8 +6,8 @@ const TarckCar = ({category}) => {
 
     return (
         <div>
-             <div className="card w-96 bg-base-100 shadow-xl">
-               <img src={photo} alt="Shoes" />
+             <div className="card w-96  bg-base-100 shadow-xl">
+               <img src={photo} alt="Shoes"  className='h-[200px]'/>
                <div className="card-body">
                  <h2 className="card-title">Name: {toyname}</h2>
                 <div className='flex flex-row justify-between'>
