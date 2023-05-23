@@ -128,7 +128,7 @@ const AddToys = () => {
                                <textarea placeholder="Bio" name='textArea' className="textarea textarea-bordered textarea-md w-full " ></textarea>
                              </div>
                              <div className="form-control mt-6">
-                               <button className="btn btn-primary">Login</button>
+                               <button className="btn btn-primary">Add New Car</button>
                              </div>
                            </div>
                       </div>

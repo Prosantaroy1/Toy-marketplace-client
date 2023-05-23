@@ -12,10 +12,6 @@ import AllDetailsBtn from "../page/AllDetailsBtn/AllDetailsBtn";
 
 const router = createBrowserRouter([
     {
-       path: 'detalisBtn',
-       element: <AllDetailsBtn/>
-    },
-    {
       path: "/",
       element: <Main/>,
       children: [
@@ -47,6 +43,12 @@ const router = createBrowserRouter([
         {
             path: '/signin',
             element: <Register/>
+        },
+        {
+            path: 'detalisBtn/:id',
+            element: <AllDetailsBtn/>,
+            loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+            
         }
       ]
     },

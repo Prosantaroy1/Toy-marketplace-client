@@ -17,7 +17,24 @@ const MyToys = () => {
             setMycars(data)
         })
     },[])
-    console.log(mycars)
+   // console.log(mycars)
+   //deleted car
+   const handleDelete = id =>{
+     // console.log(id)
+     const process = confirm('Are your sure deleted !!')
+     if(process){
+        fetch(`http://localhost:5000/product/${id}`,{
+            method: 'DELETE'
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            console.log(data)
+            alert('Deleted Your Successful');
+            const remaining = mycars.filter(car => car._id !==id);
+            setMycars(remaining);
+        })
+     }
+   }
     
     return (
         <div>
@@ -27,21 +44,28 @@ const MyToys = () => {
                      <table className="table w-full">
                        {/* head */}
                        <thead>
-                         <tr>
-                           
-                           <th>Seller Name</th>
-                           <th>Toy Name</th>
-                           <th>Sub-category</th>
-                           <th>Price</th>
-                           <th>Quantity</th>
-                           <th></th>
-                         </tr>
+                        <tr>
+                            <th>
+                              <label>
+                                <input type="checkbox" className="checkbox" />
+                              </label>
+                            </th>
+                            <th>Photo</th>
+                            <th>Name & category</th>
+                            <th>Seller name & Email</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Rating</th>
+                            <th></th>
+                            <th></th>
+                          </tr>
                        </thead>
                        <tbody>
                           {
                             mycars.map(mycar => <MyCar
                              key={mycar._id}
                              mycar={mycar}
+                             handleDelete={handleDelete}
                             ></MyCar>)
                           }
                           
