@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const AllToyTable = ({product}) => {
@@ -15,12 +14,10 @@ const AllToyTable = ({product}) => {
                  <td>{price}</td>
                  <td>{quantity}</td>
                  <td>
-                  {/* <button className="btn btn-ghost btn-xs">details</button>*/}
-                  {/* The button to open modal */}
-                   
-                    <label htmlFor="my-modal-3" className="btn">open modal</label>
-                
-                    
+                 <Link to={`/detalisBtn/${_id}`}>
+                    <button  className="btn btn-primary mt-3">Details</button>
+                 </Link>
+
                  </td>
              </tr>
         </>

@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         },
         {
             path: 'detalisBtn/:id',
-            element: <AllDetailsBtn/>,
+            element: <PrivateRouter><AllDetailsBtn/></PrivateRouter>,
             loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
             
         }

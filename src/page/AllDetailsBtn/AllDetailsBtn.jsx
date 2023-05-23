@@ -7,7 +7,7 @@ const AllDetailsBtn = () => {
     const details = useLoaderData();
     console.log(details);
     //
-    const {description, email, price, quantity, sellerName, rating, subCategory, toyname, photo,} = details;
+    const {description, email, price, quantity, sellerName, rating, subCategory, toyname, photo, textArea} = details;
 
     return (
         <> 
@@ -19,19 +19,19 @@ const AllDetailsBtn = () => {
                      <img src={photo} className="max-w-sm rounded-lg shadow-2xl" />
                      <div>
                         <h4 className='text-xl font-semibold'>
-                            <span className='text-[#ff3c3c] font-bold'>Toy Name</span>: {toyname}
+                            <span className='text-[#ff3c3c] font-bold'>Toy Name</span> : {toyname}
                         </h4>
                         <div className='flex flex-row gap-5'>
-                            <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Seller Name</span>: {sellerName}</p>
-                            <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Seller Email</span>: {email}</p>
+                            <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Seller Name</span> : {sellerName}</p>
+                            <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Seller Email</span> : {email}</p>
                         </div>
                         <div className='flex flex-row  gap-6'>
-                            <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Category</span>: {subCategory}</p>
-                            <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Qnantity</span>: {quantity}</p>
+                            <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Category</span> : {subCategory}</p>
+                            <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Qnantity</span> : {quantity}</p>
                          </div>
                          <div className='flex flex-row gap-6'>
-                             <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Price</span>: {price}</p>
-                             <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Rating</span>: {rating}</p>
+                             <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Price</span> : {price}</p>
+                             <p className='text-xl font-semibold'><span className='text-[#ff3c3c] font-bold'>Rating</span> : {rating}</p>
                          </div>
                          <div>
                              <p><span className='text-xl font-bold'>Product About</span>: {description}</p>
